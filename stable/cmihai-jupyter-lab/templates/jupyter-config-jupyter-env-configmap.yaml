@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  NB_PASSWORD_HASH: sha1:502b38d9f92f:fe2f43ac5ad4ff9032e83da02a978378f3019385
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: jupyter-config-jupyter-env
+  name: jupyter-config-jupyter-env

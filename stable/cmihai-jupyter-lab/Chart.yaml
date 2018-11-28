@@ -1,0 +1,7 @@
+name: jupyter
+description: A generated Helm Chart for jupyter from Skippbox Kompose
+version: 0.0.1
+keywords:
+  - jupyter
+sources:
+home:

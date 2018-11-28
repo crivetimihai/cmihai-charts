@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose -f jupyter.yaml convert -c
+    kompose.service.type: nodeport
+    kompose.version: 1.17.0 (HEAD)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: jupyter
+  name: jupyter
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: jupyter
+    spec:
+      containers:
+      - env:
+        - name: NB_PASSWORD_HASH
+          valueFrom:
+            configMapKeyRef:
+              key: NB_PASSWORD_HASH
+              name: jupyter-config-jupyter-env
+        image: cmihai/jupyter:v1
+        name: cmihai-jupyter
+        ports:
+        - containerPort: 8888
+        resources: {}
+        volumeMounts:
+        - mountPath: /home/user/jupyter
+          name: jupyter
+      hostname: jupyter
+      restartPolicy: Always
+      volumes:
+      - name: jupyter
+        persistentVolumeClaim:
+          claimName: jupyter
+status: {}
