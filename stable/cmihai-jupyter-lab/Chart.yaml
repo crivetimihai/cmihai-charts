@@ -1,6 +1,7 @@
 name: jupyter
-description: A generated Helm Chart for jupyter from Skippbox Kompose
+description: Jupyter Lab with everything you need for Machine Learning
 version: 0.0.1
+icon: http://jupyter.org/assets/try/jupyter.png
 keywords:
   - jupyter
 sources:
